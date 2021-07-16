@@ -1,14 +1,14 @@
-import React from 'react';
-const Something = () => {
-    const text = 'А вот здесь у нас подзаголовок';
-    const styles = {
+const Card = () => {
+    const Text = 'А вот здесь у нас заголовок';
+    const Styles = {
         backgroundColor: 'teal',
         color: 'white',
+        width: '250px',
     };
     return (
-        <div>
-            <h2>{text}</h2>
-            <div style={styles}>
+        <div style={Styles}>
+            <h2>{Text}</h2>
+            <div style={Styles}>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -20,4 +20,4 @@ const Something = () => {
         </div>
     );
 };
-export default Something;
+export default Card;

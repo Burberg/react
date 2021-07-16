@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/app/';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-const elem = <h2>Hello world!</h2>;
+import Card from './Card.js';
+import Header from './Header.js';
 
 ReactDOM.render(
     <React.StrictMode>
-        <App />
+        {/* <App /> */}
+        <Header />
+        <Card />
     </React.StrictMode>,
     document.getElementById('root'),
 );
