@@ -1,17 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Text = 'А вот здесь у нас заголовок';
-const Styles = {
+const text = 'А вот здесь у нас заголовок';
+const styles = {
     backgroundColor: 'teal',
     color: 'white',
     width: '250px',
 };
-const Card = () => {
-    return (
-        <div style={Styles}>
-            <h2>{Text} </h2>
+const stylesG = {
+    backgroundColor: 'green',
+};
+const stylesR = {
+    backgroundColor: 'red',
+};
 
-            <div style={Styles}>
+const Card = () => {
+    const [checked, setChecked] = useState(true);
+    function chengeCheckbox() {
+        setChecked(!checked);
+    }
+    return (
+        <div style={styles}>
+            <h2>
+                {text} <input type="checkbox" checked={checked} onChange={chengeCheckbox} />
+            </h2>
+
+            <div style={checked ? stylesG : stylesR}>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
