@@ -1,0 +1,16 @@
+.stylesG {
+    background-color: teal;
+    color: white;
+    width: 250px;
+}
+.stylesR {
+    color: white;
+    background-color: tomato;
+    width: 250px;
+}
+
+.tomato {
+    color: black;
+    background-color: tomato;
+    width: 250px;
+}
