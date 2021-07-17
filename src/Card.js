@@ -1,13 +1,11 @@
 import React from 'react';
-
+const Text = 'А вот здесь у нас заголовок';
+const Styles = {
+    backgroundColor: 'teal',
+    color: 'white',
+    width: '250px',
+};
 const Card = () => {
-    const Text = 'А вот здесь у нас заголовок';
-    const Styles = {
-        backgroundColor: 'teal',
-        color: 'white',
-        width: '250px',
-    };
-
     return (
         <div style={Styles}>
             <h2>{Text} </h2>
