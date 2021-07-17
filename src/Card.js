@@ -1,4 +1,5 @@
 import React from 'react';
+
 const Text = 'А вот здесь у нас заголовок';
 const Styles = {
     backgroundColor: 'teal',
