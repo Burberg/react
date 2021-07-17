@@ -1,10 +1,11 @@
 import React from 'react';
+
+const Styles = {
+    backgroundColor: 'tomato',
+    textAlign: 'center',
+    color: 'white',
+};
 const AppHeader = () => {
-    const Styles = {
-        backgroundColor: 'tomato',
-        textAlign: 'center',
-        color: 'white',
-    };
     return (
         <header style={Styles}>
             <h1>Здесь у нас header</h1>

@@ -1,3 +1,5 @@
+import React from 'react';
+
 const Card = () => {
     const Text = 'А вот здесь у нас заголовок';
     const Styles = {
