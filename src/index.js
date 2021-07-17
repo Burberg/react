@@ -1,10 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/app/';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-const elem = <h2>Hello world!</h2>;
 
 ReactDOM.render(
     <React.StrictMode>
