@@ -5,9 +5,11 @@ const Card = () => {
         color: 'white',
         width: '250px',
     };
+
     return (
         <div style={Styles}>
-            <h2>{Text}</h2>
+            <h2>{Text} </h2>
+
             <div style={Styles}>
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
