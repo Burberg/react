@@ -4,10 +4,9 @@ import Header from './Header';
 function App() {
     return (
         <div>
-            <Header></Header>
-            <Card></Card>
+            <Header />
+            <Card />
         </div>
     );
 }
-
 export default App;
