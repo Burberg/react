@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import './Card.css';
 
@@ -11,10 +12,10 @@ const Card = () => {
 
     return (
         <div>
-            <h2 className="tomato">
+            <h1 className="tomato">
                 {Text} <input type="checkbox" checked={checked} onChange={changeCheckbox} />
-            </h2>
-            <div className={`form-control ${checked ? 'stylesG ' : 'stylesR'}`}>
+            </h1>
+            <div className={classNames('description', { stylesR: checked, stylesG: !checked })}>
                 <p>
                     sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
