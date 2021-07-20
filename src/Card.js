@@ -11,17 +11,17 @@ const sampleText =
 const Card = () => {
     const [checked, setChecked] = useState(false); //check
     const [editMode, setEdit] = useState(false); // edit
-    const [headerTitle, setHeaderTitle] = useState('');
-    const [headerTemp, setHeaderTemp] = useState('Тут у нас заголовок');
-    const [bottomTitle, setBottomTitle] = useState('');
-    const [bottomTemp, setBottomTemp] = useState(sampleText);
+    const [headerTitle, setHeaderTitle] = useState('Тут у нас заголовок');
+    const [headerTemp, setHeaderTemp] = useState('');
+    const [bottomTitle, setBottomTitle] = useState(sampleText);
+    const [bottomTemp, setBottomTemp] = useState('');
 
     const titleChangeHandler = (event) => {
-        setHeaderTitle(event.target.value);
+        setHeaderTemp(event.target.value);
     };
 
     const bottomChangeHandler = (event) => {
-        setBottomTitle(event.target.value);
+        setBottomTemp(event.target.value);
     };
     function changeCheckbox() {
         setChecked(!checked);
@@ -36,21 +36,22 @@ const Card = () => {
     const submitHandler = (event) => {
         event.preventDefault();
         setEdit(false);
-        setHeaderTemp(headerTitle);
-        setBottomTemp(bottomTitle);
+        setHeaderTitle(headerTemp);
+        setBottomTitle(bottomTemp);
     };
 
     const cancelHandler = (event) => {
         event.preventDefault();
         setEdit(false);
-        setHeaderTitle('');
-        setBottomTitle('');
     };
     return (
         <div>
             <h1 className="tomato">
-                {!editMode && <p> {headerTemp}</p>}
-                {editMode && <input type="text" onChange={titleChangeHandler} value={headerTitle}></input>}
+                {editMode ? (
+                    <input type="text" onChange={titleChangeHandler} value={headerTemp}></input>
+                ) : (
+                    <p> {headerTitle}</p>
+                )}
             </h1>
             <div class="buttonHolder">
                 {!editMode && <HiPencil onClick={changeEditMode} />}
@@ -60,9 +61,9 @@ const Card = () => {
                     <input onClick={changeCheckbox} checked={checked} onChange={changeCheckbox} type="checkbox"></input>
                 )}
             </div>
-            <div className={classNames('description', { stylesR: checked })}>{!editMode && <p> {bottomTemp}</p>}</div>
+            <div className={classNames('description', { stylesR: checked })}>{!editMode && <p> {bottomTitle}</p>}</div>
             <div className="bottomButtonHolder">
-                {editMode && <input type="text" onChange={bottomChangeHandler} value={bottomTitle}></input>}
+                {editMode && <textarea type="text" onChange={bottomChangeHandler} value={bottomTemp}></textarea>}
             </div>
         </div>
     );
