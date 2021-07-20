@@ -13,7 +13,7 @@ const Card = () => {
     const [editMode, setEdit] = useState(false); // edit
     const [headerTitle, setHeaderTitle] = useState('');
     const [headerTemp, setHeaderTemp] = useState('Тут у нас заголовок');
-    const [bottomTitle, setBottomEnteredTitle] = useState('');
+    const [bottomTitle, setBottomTitle] = useState('');
     const [bottomTemp, setBottomTemp] = useState(sampleText);
 
     const titleChangeHandler = (event) => {
@@ -21,7 +21,7 @@ const Card = () => {
     };
 
     const bottomChangeHandler = (event) => {
-        setBottomEnteredTitle(event.target.value);
+        setBottomTitle(event.target.value);
     };
     function changeCheckbox() {
         setChecked(!checked);
@@ -44,7 +44,7 @@ const Card = () => {
         event.preventDefault();
         setEdit(false);
         setHeaderTitle('');
-        setBottomEnteredTitle('');
+        setBottomTitle('');
     };
     return (
         <div>
