@@ -32,6 +32,9 @@ const Block = (props) => {
         setEdit(!editMode);
         if (checked) {
             setChecked(!checked);
+        } else {
+            setHeaderTemp(headerTitle);
+            setBottomTemp(bottomTitle);
         }
     }
     const submitHandler = (event) => {
@@ -46,40 +49,39 @@ const Block = (props) => {
         setEdit(false);
     };
     return (
-        <div>
+        <React.Fragment>
             <Card style={{ width: '18rem' }} color={checked ? 'danger' : 'success'} fluid="md">
-                <CardTitle tag="h1">
+                <CardTitle>
                     <h1 className="text-white">
                         {editMode ? (
                             <input type="text" onChange={titleChangeHandler} value={headerTemp}></input>
                         ) : (
-                            <p width="150px"> {headerTitle}</p>
+                            <span width="150px"> {headerTitle}</span>
                         )}
                     </h1>
                 </CardTitle>
                 <CardText>
-                    <div class="buttonHolder">
-                        {!editMode && <HiPencil onClick={changeEditMode} />}
-                        {editMode && <AiOutlineCheck onClick={submitHandler} />}
-                        {editMode && <MdCancel onClick={cancelHandler} />}
-                        {!editMode && (
+                    {editMode ? (
+                        <span>
+                            <AiOutlineCheck onClick={submitHandler} />
+                            <MdCancel onClick={cancelHandler} />
+                        </span>
+                    ) : (
+                        <span>
+                            <HiPencil onClick={changeEditMode} />
                             <input
                                 onClick={changeCheckbox}
                                 checked={checked}
                                 onChange={changeCheckbox}
                                 type="checkbox"
                             ></input>
-                        )}
-                    </div>
-                    <div>{!editMode && <p className="text-white"> {bottomTitle}</p>}</div>
-                    <div className="bottomButtonHolder">
-                        {editMode && (
-                            <textarea type="text" onChange={bottomChangeHandler} value={bottomTemp}></textarea>
-                        )}
-                    </div>
+                        </span>
+                    )}
+                    {!editMode && <span className="text-white"> {bottomTitle}</span>}
+                    {editMode && <textarea type="text" onChange={bottomChangeHandler} value={bottomTemp}></textarea>}
                 </CardText>
             </Card>
-        </div>
+        </React.Fragment>
     );
 };
 
