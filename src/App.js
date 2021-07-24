@@ -1,13 +1,13 @@
+import React from 'react';
 import Header from './Header';
+import Body from './Body';
 
-// import Example from './Example';
-import Block from './Card';
-function App() {
+const App = (props) => {
     return (
         <div>
             <Header />
-            <Block />
+            <Body />
         </div>
     );
-}
+};
 export default App;
