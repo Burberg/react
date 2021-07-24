@@ -14,7 +14,7 @@ const cards = [
 function Body() {
     const [readOnly, setRead] = useState(false);
 
-    function show() {
+    function change() {
         setRead(!readOnly);
     }
 
@@ -28,7 +28,7 @@ function Body() {
             <div>
                 <label>
                     Только для чтения
-                    <input type="checkbox" onChange={show} checked={readOnly}></input>
+                    <input type="checkbox" onChange={change} checked={readOnly}></input>
                 </label>
             </div>
         </div>
