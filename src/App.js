@@ -1,11 +1,12 @@
-import Card from './Card';
 import Header from './Header';
 
+// import Example from './Example';
+import Block from './Card';
 function App() {
     return (
         <div>
             <Header />
-            <Card />
+            <Block />
         </div>
     );
 }
