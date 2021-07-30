@@ -1,7 +1,16 @@
 import React from 'react';
 import CardItem from './CardItem';
 
-const cards = [{ id: '1', header: 'Прив', body: 'чёдел?' }];
+const cards = [
+    { id: '1', header: 'Прив', body: 'чёдел?' },
+    { id: '2', header: 'Прив', body: 'чёдел?' },
+    { id: '3', header: 'Прив', body: 'чёдел?' },
+    { id: '4', header: 'Прив', body: 'чёдел?' },
+    { id: '5', header: 'Прив', body: 'чёдел?' },
+    { id: '6', header: 'Прив', body: 'чёдел?' },
+    { id: '7', header: 'Прив', body: 'чёдел?' },
+    { id: '8', header: 'Прив', body: 'чёдел?' },
+];
 
 class CardList extends React.Component {
     constructor(props) {
