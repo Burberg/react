@@ -13,6 +13,7 @@ const Block = (props) => {
     const [headerTemp, setHeaderTemp] = useState('');
     const [bottomTitle, setBottomTitle] = useState(props.body);
     const [bottomTemp, setBottomTemp] = useState('');
+    const [test, setTest] = useState(true);
 
     const titleChangeHandler = (event) => {
         setHeaderTemp(event.target.value);
@@ -24,6 +25,14 @@ const Block = (props) => {
 
     function changeCheckbox() {
         setChecked(!checked);
+    }
+
+    function changeTest() {
+        setTest(!test);
+
+        if (!test) {
+            setEdit(false);
+        }
     }
 
     function changeEditMode() {
@@ -49,45 +58,58 @@ const Block = (props) => {
     };
 
     return (
-        <React.Fragment>
-            <Card style={{ width: '18rem' }} color={checked ? 'danger' : 'success'} fluid="md">
-                <CardTitle>
-                    <h1 className="text-white">
-                        {editMode && !props.readOnly ? (
-                            <input type="text" onChange={titleChangeHandler} value={headerTemp}></input>
-                        ) : (
-                            <span width="150px"> {headerTitle}</span>
-                        )}
-                    </h1>
-                </CardTitle>
-                <CardText>
-                    <span>
+        <Card style={{ width: '14rem' }} color={checked ? 'danger' : 'success'} fluid="md">
+            <CardTitle>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div>
+                        <h1 className="text-white">
+                            {editMode && !props.readOnly ? (
+                                <input
+                                    style={{ width: '80%' }}
+                                    type="text"
+                                    onChange={titleChangeHandler}
+                                    value={headerTemp}
+                                ></input>
+                            ) : (
+                                <span> {headerTitle}</span>
+                            )}
+                        </h1>
+                    </div>
+                    <div>
                         {!props.readOnly && (
                             <span>
                                 {editMode ? (
-                                    <span>
+                                    <span style={{ display: 'flex' }}>
                                         <AiOutlineCheck onClick={submitHandler} />
                                         <MdCancel onClick={cancelHandler} />
                                     </span>
                                 ) : (
                                     <span>
                                         <HiPencil onClick={changeEditMode} />
-                                        <input onChange={changeCheckbox} checked={checked} type="checkbox"></input>
                                     </span>
                                 )}
                             </span>
                         )}
-                    </span>
-                    <span className="text-white">
-                        {editMode && !props.readOnly ? (
-                            <textarea type="text" onChange={bottomChangeHandler} value={bottomTemp}></textarea>
-                        ) : (
-                            <span> {bottomTitle}</span>
+
+                        {!editMode && (
+                            <span>
+                                <input onChange={changeCheckbox} checked={checked} type="checkbox"></input>
+                            </span>
                         )}
-                    </span>
-                </CardText>
-            </Card>
-        </React.Fragment>
+                    </div>
+                </div>
+            </CardTitle>
+            <CardText>
+                <span className="text-white">
+                    {editMode && !props.readOnly ? (
+                        <textarea type="text" onChange={bottomChangeHandler} value={bottomTemp}></textarea>
+                    ) : (
+                        <span> {bottomTitle}</span>
+                    )}
+                </span>
+                <input type="checkbox" onChange={changeTest} checked={test}></input>
+            </CardText>
+        </Card>
     );
 };
 
