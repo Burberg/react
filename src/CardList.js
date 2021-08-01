@@ -14,29 +14,35 @@ const cards = [
 
 class CardList extends React.Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
-            readOnly: false,
+            readOnly: props.readOnly,
         };
     }
+
     change = () => {
         this.setState({ readOnly: !this.state.readOnly });
     };
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (!prevState.readOnly && nextProps.readOnly) {
+            return { readOnly: true };
+        } else {
+            return { readOnly: false };
+        }
+    }
+
     render() {
         return (
             <div style={{ marginTop: '25px' }}>
-                <label>
-                    Только для чтения
-                    <input type="checkbox" onChange={this.change} checked={this.state.readOnly}></input>
-                </label>
-                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
                     {cards.map((card) => (
-                        <CardItem header={card.header} body={card.body} readOnly={this.state.readOnly} key={card.id} />
+                        <CardItem {...card} readOnly={this.state.readOnly} key={card.id} />
                     ))}
                 </div>
             </div>
         );
     }
 }
+
 export default CardList;

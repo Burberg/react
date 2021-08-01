@@ -6,7 +6,7 @@ import { MdCancel } from 'react-icons/md';
 
 class CardItem extends React.Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
             checked: false,
             editMode: false,
@@ -30,16 +30,13 @@ class CardItem extends React.Component {
     };
 
     changeEditMode = () => {
-        this.setState({ editMode: !this.state.editMode });
-
-        if (this.state.checked) {
-            this.setState({ checked: false });
-            this.setState({ headerTemp: this.state.headerTitle });
-            this.setState({ bottomTemp: this.state.bottomTitle });
-        } else {
-            this.setState({ headerTemp: this.state.headerTitle });
-            this.setState({ bottomTemp: this.state.bottomTitle });
-        }
+        const { editMode, headerTitle, bottomTitle, checked } = this.state;
+        this.setState({
+            editMode: !editMode,
+            checked: checked ? false : checked,
+            headerTemp: headerTitle,
+            bottomTemp: bottomTitle,
+        });
     };
 
     cancelHandler = (event) => {
@@ -49,14 +46,14 @@ class CardItem extends React.Component {
 
     submitHandler = (event) => {
         event.preventDefault();
-        this.setState({ editMode: false });
-
-        this.setState({ bottomTitle: this.state.bottomTemp });
-        this.setState({ headerTitle: this.state.headerTemp });
+        this.setState({ editMode: false, bottomTitle: this.state.bottomTemp, headerTitle: this.state.headerTemp });
     };
-    componentDidUpdate(prevProps) {
-        if (this.props.readOnly !== prevProps.readOnly) {
-            this.setState({ editMode: false });
+
+    static getDerivedStateFromProps(nextProps, prevState) {
+        if (!prevState.readOnly && nextProps.readOnly) {
+            return { editMode: false };
+        } else {
+            return null;
         }
     }
 
@@ -75,7 +72,7 @@ class CardItem extends React.Component {
                                         value={this.state.headerTemp}
                                     ></input>
                                 ) : (
-                                    <span> {this.state.headerTitle}</span>
+                                    <span>{this.state.headerTitle}</span>
                                 )}
                             </h1>
                         </div>

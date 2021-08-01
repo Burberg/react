@@ -1,18 +1,13 @@
 import React from 'react';
-import CardList from './CardList';
 
-class Body extends React.Component {
-    constructor(props) {
-        super();
-    }
+import Checkbox from './Checkbox';
 
-    render() {
-        return (
-            <div>
-                <CardList />
-            </div>
-        );
-    }
-}
+const Body = () => {
+    return (
+        <div>
+            <Checkbox />
+        </div>
+    );
+};
 
 export default Body;
