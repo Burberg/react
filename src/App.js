@@ -1,13 +1,14 @@
+import './App.css';
 import Header from './Header';
+import Body from './Body';
 
-// import Example from './Example';
-import Block from './Card';
 function App() {
     return (
         <div>
             <Header />
-            <Block />
+            <Body />
         </div>
     );
 }
+
 export default App;
