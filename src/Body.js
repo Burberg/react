@@ -2,11 +2,7 @@ import React from 'react';
 import CardBasis from './CardBasis';
 
 const Body = () => {
-    return (
-        <div>
-            <CardBasis />
-        </div>
-    );
+    return <CardBasis />;
 };
 
 export default Body;
