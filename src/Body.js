@@ -1,11 +1,10 @@
 import React from 'react';
-
-import Checkbox from './Checkbox';
+import CardBasis from './CardBasis';
 
 const Body = () => {
     return (
         <div>
-            <Checkbox />
+            <CardBasis />
         </div>
     );
 };

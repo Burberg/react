@@ -20,24 +20,12 @@ class CardList extends React.Component {
         };
     }
 
-    change = () => {
-        this.setState({ readOnly: !this.state.readOnly });
-    };
-
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (!prevState.readOnly && nextProps.readOnly) {
-            return { readOnly: true };
-        } else {
-            return { readOnly: false };
-        }
-    }
-
     render() {
         return (
-            <div style={{ marginTop: '25px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap' }}>
+            <div>
+                <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                     {cards.map((card) => (
-                        <CardItem {...card} readOnly={this.state.readOnly} key={card.id} />
+                        <CardItem {...card} readOnly={this.props.readOnly} key={card.id} />
                     ))}
                 </div>
             </div>

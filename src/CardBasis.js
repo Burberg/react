@@ -1,7 +1,7 @@
 import React from 'react';
 import CardList from './CardList';
 
-class Checkbox extends React.Component {
+class CardBasis extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -9,7 +9,7 @@ class Checkbox extends React.Component {
         };
     }
 
-    change = () => {
+    switchReadOnly = () => {
         this.setState({ readOnly: !this.state.readOnly });
     };
 
@@ -18,7 +18,7 @@ class Checkbox extends React.Component {
             <div style={{ marginTop: '25px' }}>
                 <label>
                     Только для чтения
-                    <input type="checkbox" onChange={this.change} checked={this.state.readOnly}></input>
+                    <input type="checkbox" onChange={this.switchReadOnly} checked={this.state.readOnly}></input>
                 </label>
                 <CardList readOnly={this.state.readOnly} />
             </div>
@@ -26,4 +26,4 @@ class Checkbox extends React.Component {
     }
 }
 
-export default Checkbox;
+export default CardBasis;

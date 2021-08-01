@@ -59,11 +59,11 @@ class CardItem extends React.Component {
 
     render() {
         return (
-            <Card style={{ width: '14rem' }} color={this.state.checked ? 'danger' : 'success'} fluid="md">
+            <Card style={{ width: '14rem', margin: '25px' }} color={this.state.checked ? 'danger' : 'success'}>
                 <CardTitle>
                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                         <div>
-                            <h1 className="text-white">
+                            <h1 className="text-white" style={{ wordBreak: 'break-word' }}>
                                 {this.state.editMode && !this.props.readOnly ? (
                                     <input
                                         style={{ width: '80%' }}
@@ -76,7 +76,7 @@ class CardItem extends React.Component {
                                 )}
                             </h1>
                         </div>
-                        <div>
+                        <div style={{ display: 'flex' }}>
                             {!this.props.readOnly && (
                                 <span>
                                     {this.state.editMode ? (

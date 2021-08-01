@@ -1,4 +1,3 @@
-// import { Button } from 'bootstrap';
 import './App.css';
 import Header from './Header';
 import Body from './Body';
