@@ -17,6 +17,10 @@ class CardItem extends React.Component {
         };
     }
 
+    handleCheckboxChange = (event) => {
+        this.setState({ checked: event.target.checked });
+    };
+
     titleChangeHandler = (event) => {
         this.setState({ headerTemp: event.target.value });
     };
@@ -112,7 +116,7 @@ class CardItem extends React.Component {
                                 value={this.state.bottomTemp}
                             ></textarea>
                         ) : (
-                            <span> {this.state.bottomTitle}</span>
+                            <span>{this.state.bottomTitle}</span>
                         )}
                     </span>
                 </CardText>
