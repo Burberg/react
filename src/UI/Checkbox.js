@@ -28,8 +28,7 @@ const StyledCheckbox = styled.div`
   transition: all 150ms;
   margin-left:-13px;
  
-
-  ${HiddenCheckbox}:focus + & {
+    ${HiddenCheckbox}:focus + & {
     box-shadow: 0 0 0 3px salmon;
     border-radius: 2px;
   }

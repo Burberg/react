@@ -98,11 +98,11 @@ class CardItem extends React.Component {
                             )}
                             {!this.state.editMode && (
                                 <span>
-                                   <Checkbox
+                                    <input
                                         type="checkbox"
                                         onChange={this.changeCheckbox}
                                         checked={this.state.checked}
-                                    />
+                                    ></input>
                                 </span>
                             )}
                         </div>

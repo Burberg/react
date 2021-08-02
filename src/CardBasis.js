@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CardList from './CardList';
+import Checkbox from './UI/Checkbox';
 
 const CardBasis = () => {
     function switchReadOnly() {
@@ -8,10 +9,10 @@ const CardBasis = () => {
     const [readOnly, setReadOnly] = useState();
     return (
         <div style={{ marginTop: '25px' }}>
-            <label>
+            <div style={{ display: 'flex', width: '20px;' }}>
                 Только для чтения
-                <input type="checkbox" onChange={switchReadOnly} checked={readOnly}></input>
-            </label>
+                <Checkbox type="checkbox" onChange={switchReadOnly} checked={readOnly} />
+            </div>
             <CardList readOnly={readOnly} />
         </div>
     );
