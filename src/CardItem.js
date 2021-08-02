@@ -3,6 +3,7 @@ import { Card, CardText, CardTitle } from 'reactstrap';
 import { HiPencil } from 'react-icons/hi';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { MdCancel } from 'react-icons/md';
+import Checkbox from './UI/Checkbox';
 
 class CardItem extends React.Component {
     constructor(props) {
@@ -16,6 +17,10 @@ class CardItem extends React.Component {
             bottomTemp: '',
         };
     }
+
+    handleCheckboxChange = (event) => {
+        this.setState({ checked: event.target.checked });
+    };
 
     titleChangeHandler = (event) => {
         this.setState({ headerTemp: event.target.value });
@@ -93,11 +98,16 @@ class CardItem extends React.Component {
                             )}
                             {!this.state.editMode && (
                                 <span>
-                                    <input
+                                    {/* <input
                                         type="checkbox"
                                         onChange={this.changeCheckbox}
                                         checked={this.state.checked}
-                                    ></input>
+                                    ></input> */}
+                                    <Checkbox
+                                        type="checkbox"
+                                        onChange={this.changeCheckbox}
+                                        checked={this.state.checked}
+                                    />
                                 </span>
                             )}
                         </div>
