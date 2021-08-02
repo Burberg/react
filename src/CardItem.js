@@ -3,7 +3,6 @@ import { Card, CardText, CardTitle } from 'reactstrap';
 import { HiPencil } from 'react-icons/hi';
 import { AiOutlineCheck } from 'react-icons/ai';
 import { MdCancel } from 'react-icons/md';
-import Checkbox from './UI/Checkbox';
 
 class CardItem extends React.Component {
     constructor(props) {
