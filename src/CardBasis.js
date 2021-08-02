@@ -1,6 +1,6 @@
 import React from 'react';
 import CardList from './CardList';
-import Checkbox from './UI/Checkbox';
+import Checkbox from './Common/Components/Checkbox';
 
 class CardBasis extends React.Component {
     constructor(props) {
@@ -13,6 +13,7 @@ class CardBasis extends React.Component {
     switchReadOnly = () => {
         this.setState({ readOnly: !this.state.readOnly });
     };
+
     render() {
         return (
             <div style={{ marginTop: '25px' }}>
