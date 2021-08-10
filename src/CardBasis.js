@@ -1,6 +1,6 @@
 import React from 'react';
-import CardList from './CardList';
-import Checkbox from './Common/Components/Checkbox';
+import Checkbox from './common/components/Checkbox';
+import CardList from './cardcomponents/CardList';
 
 class CardBasis extends React.Component {
     constructor(props) {
@@ -21,7 +21,8 @@ class CardBasis extends React.Component {
                     Только для чтения
                     <Checkbox type="checkbox" onChange={this.switchReadOnly} checked={this.state.readOnly} />
                 </div>
-                <CardList readOnly={this.state.readOnly} />
+
+                <CardList readOnly={this.state.readOnly} showCards={this.showCards} />
             </div>
         );
     }

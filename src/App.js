@@ -1,12 +1,11 @@
-import './App.css';
 import Header from './Header';
-import Body from './Body';
+import CardBasis from './CardBasis';
 
 function App() {
     return (
         <div>
             <Header />
-            <Body />
+            <CardBasis />
         </div>
     );
 }
