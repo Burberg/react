@@ -1,11 +1,11 @@
 import Header from './Header';
-import CardBasis from './CardBasis';
+import Body from './Body';
 
 function App() {
     return (
         <div>
             <Header />
-            <CardBasis />
+            <Body />
         </div>
     );
 }
