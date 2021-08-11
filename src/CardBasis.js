@@ -1,5 +1,5 @@
 import React from 'react';
-import Checkbox from './common/components/Checkbox';
+import Checkbox from './Common/Components/Checkbox';
 import CardList from './cardcomponents/CardList';
 
 class CardBasis extends React.Component {
