@@ -32,7 +32,6 @@ class CardList extends React.Component {
             this.setState({ idsArr: this.state.idsArr });
         }
     };
-
     removeCards = () => {
         for (let i = 0; i <= this.state.cards.length; i++) {
             delete this.state.cards[this.state.idsArr[i] - 1];
