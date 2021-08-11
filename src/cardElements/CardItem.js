@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'reactstrap';
 import CardHeader from './CardHeader';
+import CardBody from './CardBody';
 
 class CardItem extends React.Component {
     constructor(props) {
@@ -67,15 +68,19 @@ class CardItem extends React.Component {
                     readOnly={this.props.readOnly}
                     checked={this.state.checked}
                     editMode={this.state.editMode}
-                    bottomTitle={this.state.bottomTitle}
                     headerTitle={this.state.headerTitle}
-                    bottomTemp={this.state.bottomTemp}
                     headerTemp={this.state.headerTemp}
                     changeCheckbox={this.changeCheckbox}
                     changeEditMode={this.changeEditMode}
                     submitHandler={this.submitHandler}
                     cancelHandler={this.cancelHandler}
                     titleChangeHandler={this.titleChangeHandler}
+                />
+                <CardBody
+                    readOnly={this.props.readOnly}
+                    editMode={this.state.editMode}
+                    bottomTitle={this.state.bottomTitle}
+                    bottomTemp={this.state.bottomTemp}
                     bottomChangeHandler={this.bottomChangeHandler}
                 />
             </Card>

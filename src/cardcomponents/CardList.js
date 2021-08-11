@@ -1,5 +1,5 @@
 import React from 'react';
-import CardItem from './CardItem';
+import CardItem from '../cardElements/CardItem';
 
 class CardList extends React.Component {
     constructor(props) {
@@ -24,10 +24,12 @@ class CardList extends React.Component {
     showCheck = (props) => {
         let num = Number(props);
         let i = this.state.idsArr.indexOf(num);
+
         if (i < 0) {
-            this.state.idsArr.push(num);
+            this.setState({ idsArr: [...this.state.idsArr, num] });
         } else {
             this.state.idsArr.splice(i, 1);
+            this.setState({ idsArr: this.state.idsArr });
         }
     };
 

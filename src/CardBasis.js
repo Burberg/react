@@ -1,30 +1,23 @@
-import React from 'react';
-import Checkbox from './Common/Components/Checkbox';
-import CardList from './cardcomponents/CardList';
+import React, { useState } from 'react';
+import Checkbox from './common/components/Checkbox';
+import CardList from './cardComponents/CardList';
 
-class CardBasis extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            readOnly: false,
-        };
+const CardBasis = () => {
+    const [readOnly, setReadOnly] = useState(false);
+
+    function switchReadOnly() {
+        setReadOnly(!readOnly);
     }
 
-    switchReadOnly = () => {
-        this.setState({ readOnly: !this.state.readOnly });
-    };
-
-    render() {
-        return (
-            <div style={{ marginTop: '25px' }}>
-                <div style={{ display: 'flex' }}>
-                    Только для чтения
-                    <Checkbox type="checkbox" onChange={this.switchReadOnly} checked={this.state.readOnly} />
-                </div>
-
-                <CardList readOnly={this.state.readOnly} showCards={this.showCards} />
+    return (
+        <div style={{ marginTop: '25px' }}>
+            <div style={{ display: 'flex' }}>
+                Только для чтения
+                <Checkbox type="checkbox" onChange={switchReadOnly} checked={readOnly} />
             </div>
-        );
-    }
-}
+            <CardList readOnly={readOnly} />
+        </div>
+    );
+};
+
 export default CardBasis;
