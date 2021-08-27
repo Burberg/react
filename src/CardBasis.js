@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Checkbox from './common/components/Checkbox';
-import CardList from './cardcomponents/CardList';
+import CardList from './cardComponents/CardList';
 
 const CardBasis = () => {
     const [readOnly, setReadOnly] = useState(false);

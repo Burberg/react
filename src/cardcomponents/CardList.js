@@ -1,42 +1,39 @@
 import React from 'react';
-import CardItem from '../cardElements/CardItem';
+import CardItem from './cardItem/CardItem';
 
 class CardList extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            idsArr: [],
             cards: [
-                { id: '1', header: '1', body: 'Здесь и подавно ничего нет' },
-                { id: '2', header: '2', body: 'Здесь и подавно ничего нет' },
-                { id: '3', header: '3', body: 'Здесь и подавно ничего нет' },
-                { id: '4', header: '4', body: 'Здесь и подавно ничего нет' },
-                { id: '5', header: '5', body: 'Здесь и подавно ничего нет' },
-                { id: '6', header: '6', body: 'Здесь и подавно ничего нет' },
-                { id: '7', header: '7', body: 'Здесь и подавно ничего нет' },
-                { id: '8', header: '8', body: 'Здесь и подавно ничего нет' },
-                { id: '9', header: '9', body: 'Здесь и подавно ничего нет' },
-                { id: '10', header: '10', body: 'Здесь и подавно ничего нет' },
+                { id: '1', header: '1', body: 'Здесь и подавно ничего нет', checked: false },
+                { id: '2', header: '2', body: 'Здесь и подавно ничего нет', checked: false },
+                { id: '3', header: '3', body: 'Здесь и подавно ничего нет', checked: false },
+                { id: '4', header: '4', body: 'Здесь и подавно ничего нет', checked: false },
+                { id: '5', header: '5', body: 'Здесь и подавно ничего нет', checked: false },
+                { id: '6', header: '6', body: 'Здесь и подавно ничего нет', checked: false },
+                { id: '7', header: '7', body: 'Здесь и подавно ничего нет', checked: false },
+                { id: '8', header: '8', body: 'Здесь и подавно ничего нет', checked: false },
+                { id: '9', header: '9', body: 'Здесь и подавно ничего нет', checked: false },
+                { id: '10', header: '10', body: 'Здесь и подавно ничего нет', checked: false },
             ],
         };
     }
 
-    showCheck = (props) => {
-        let num = Number(props);
-        let i = this.state.idsArr.indexOf(num);
-
-        if (i < 0) {
-            this.setState({ idsArr: [...this.state.idsArr, num] });
-        } else {
-            this.state.idsArr.splice(i, 1);
-            this.setState({ idsArr: this.state.idsArr });
-        }
+    onCheck = (props) => {
+        let cards = [...this.state.cards];
+        const k = cards.findIndex((elem) => elem.id === props);
+        cards[k] = {
+            ...cards[k],
+            checked: !cards[k].checked,
+        };
+        this.setState({ cards });
     };
+
     removeCards = () => {
-        for (let i = 0; i <= this.state.cards.length; i++) {
-            delete this.state.cards[this.state.idsArr[i] - 1];
-        }
-        this.setState({ idsArr: [] });
+        let cards = this.state.cards.filter((c) => !c.checked);
+        this.setState({ cards });
     };
 
     render() {
@@ -47,7 +44,7 @@ class CardList extends React.Component {
                 </button>
                 <div style={{ display: 'flex', flexWrap: 'wrap' }}>
                     {this.state.cards.map((card) => (
-                        <CardItem {...card} readOnly={this.props.readOnly} key={card.id} showCheck={this.showCheck} />
+                        <CardItem {...card} readOnly={this.props.readOnly} key={card.id} onCheck={this.onCheck} />
                     ))}
                 </div>
             </div>

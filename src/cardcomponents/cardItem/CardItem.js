@@ -41,7 +41,7 @@ class CardItem extends React.Component {
 
     changeCheckbox = () => {
         this.setState({ checked: !this.state.checked });
-        this.props.showCheck(this.props.id);
+        this.props.onCheck(this.props.id);
     };
 
     cancelHandler = (event) => {
