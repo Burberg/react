@@ -7,7 +7,6 @@ class CardItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            checked: false,
             editMode: false,
             headerTitle: props.header,
             headerTemp: '',
@@ -16,10 +15,6 @@ class CardItem extends React.Component {
             readOnly: props.readOnly,
         };
     }
-
-    handleCheckboxChange = (event) => {
-        this.setState({ checked: event.target.checked });
-    };
 
     titleChangeHandler = (event) => {
         this.setState({ headerTemp: event.target.value });

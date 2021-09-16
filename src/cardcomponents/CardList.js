@@ -1,5 +1,5 @@
 import React from 'react';
-import CardItem from './cardItem/CardItem';
+import CardItem from './CardItem/index';
 
 class CardList extends React.Component {
     constructor(props) {
@@ -21,14 +21,10 @@ class CardList extends React.Component {
         };
     }
 
-    onCheck = (props) => {
-        let cards = [...this.state.cards];
-        const k = cards.findIndex((elem) => elem.id === props);
-        cards[k] = {
-            ...cards[k],
-            checked: !cards[k].checked,
-        };
-        this.setState({ cards });
+    onCheck = (id) => {
+        this.setState({
+            cards: this.state.cards.map((c) => (id === c.id ? { ...c, checked: !c.checked } : c)),
+        });
     };
 
     removeCards = () => {
